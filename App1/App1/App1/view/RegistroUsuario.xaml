@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.view.RegistroUsuario" BackgroundColor="black"
+             xmlns:local="clr-namespace:App1.viewmodel" 
+             >
+    <ContentPage.BindingContext>
+        <local:ViewmodalrgBliblioteca></local:ViewmodalrgBliblioteca>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Registro Usuario" TextColor="White" FontSize="30" HorizontalTextAlignment="center" Margin="25"/>
+            <Label Text="Nombre usuario" TextColor="white"></Label>
+            <Frame Padding="0" Margin="15">
+                <Entry Text="{Binding Nombre_Usuario}" Keyboard="Text" TextColor="Black"   Margin="5" />
+            </Frame>
+            <Label Text="Nombres" TextColor="white"></Label>
+            <Frame Padding="0" Margin="15">
+                <Entry Text="{Binding Nombres}" Keyboard="Text" TextColor="Black"  Margin="5" />
+            </Frame>
+            <Label Text="Apellidos" TextColor="white"></Label>
+            <Frame Padding="0" Margin="15">
+                <Entry Text="{Binding Apellidos}" Keyboard="Text"   TextColor="Black"  Margin="5"/>
+            </Frame>
+            <Label Text="Role" TextColor="white"></Label>
+            <Frame Padding="0" Margin="15">
+                <Picker ItemsSource="{Binding Roles}"  ItemDisplayBinding="{Binding role}" SelectedItem="{Binding Seleccion_role}"  ></Picker>
+            </Frame>
+            <Label Text="Contraseña" TextColor="white"></Label>
+            <Frame Padding="0" Margin="15">
+                <Entry Text="{Binding Password}" Keyboard="Text" TextColor="Black"  Margin="5" />
+            </Frame>
+            <Button Command="{Binding Regis}" Text="Guardar" Background="red" TextColor="White"   Margin="5"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

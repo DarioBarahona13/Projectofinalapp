@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.view.Principal" BackgroundColor="black"
+             xmlns:local="clr-namespace:App1.viewmodel"
+             x:DataType="local:Viewmodellogin"
+             >
+    <ContentPage.BindingContext>
+        <local:Viewmodellogin></local:Viewmodellogin>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Sistema de libros" TextColor="White" FontSize="30" HorizontalTextAlignment="center" Margin="25"></Label>
+                <Button Text="Registro Autor" Background="blue" TextColor="White"  Margin="25" Clicked="Button_Clicked" />
+                <Button Text="Registro Editorial" Background="blue" TextColor="White"  Margin="25" Clicked="Button_Clicked_1" />
+                <Button Text="Registro Libro" Background="blue" TextColor="White"   Margin="25" Clicked="Button_Clicked_2"/>
+                <Button Text="Registro Prestamos" Background="blue" TextColor="White" Margin="25" Clicked="Button_Clicked_3"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

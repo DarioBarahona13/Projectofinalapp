@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:App1.viewmodel"
+             x:Class="App1.view.RegistroEditorial" Background="black">
+    <ContentPage.BindingContext>
+        <local:ViewmodalrgBliblioteca></local:ViewmodalrgBliblioteca>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Registro Editorial" TextColor="White" FontSize="30" HorizontalTextAlignment="center" Margin="25"/>
+
+            <Label Text="Codigo" TextColor="white"></Label>
+            <Frame Padding="0" Margin="15">
+                <Entry Text="{Binding Codigo_Editorial}" Keyboard="Text" TextColor="Black"  Margin="5" />
+
+            </Frame>
+            <Label Text="Nombre" TextColor="white"></Label>
+            <Frame Padding="0" Margin="15">
+                <Entry Text="{Binding Nombre_Editorial}"></Entry>
+            </Frame>
+            <Button Command="{Binding Registrar_Editorial}" Text="Guardar" Background="Green" TextColor="White"   Margin="5"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="ID Editorial" Grid.Row="0" Grid.Column="0" TextColor="white" />
+                <Label Text="Codigo" Grid.Row="0" Grid.Column="1" TextColor="white" />
+                <Label Text="Nombre" Grid.Row="0" Grid.Column="2" TextColor="white" />
+                <ListView ItemsSource="{Binding Editorial_}" SelectedItem="" Grid.Row="1" Grid.ColumnSpan="3">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label HorizontalTextAlignment="center" TextColor="White" Text="{Binding id_editorial}" Grid.Column="0" />
+                                    <Label HorizontalTextAlignment="center" TextColor="White" Text="{Binding codigo}" Grid.Column="1" />
+                                    <Label HorizontalTextAlignment="center" TextColor="white" Text="{Binding nombre_editorial}" Grid.Column="2" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

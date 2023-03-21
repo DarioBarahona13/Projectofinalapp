@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.view.RegistroPrestamo" BackgroundColor="Black"
+             xmlns:local="clr-namespace:App1.viewmodel" >
+    <ContentPage.BindingContext>
+        <local:ViewmodalrgBliblioteca></local:ViewmodalrgBliblioteca>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+       
+        <StackLayout>
+            <Label Text="Registro Prestamo" TextColor="White" FontSize="30" HorizontalTextAlignment="center" Margin="25"/>
+            <Label Text="Fecha de ingreso" TextColor="white"></Label>
+            <Frame Padding="0" Margin="15">
+                <DatePicker Date="{Binding fecha_ingreso}" ></DatePicker>
+            </Frame>
+            <Label Text="Fecha de entrega" TextColor="white"></Label>
+            <Frame Padding="0" Margin="15">
+                <DatePicker Date="{Binding fecha_entrega}" ></DatePicker>
+            </Frame>
+            <Label Text="Libro" TextColor="white"></Label>
+            <Frame Padding="0" Margin="15">
+                <Picker ItemsSource="{Binding Libr_}"  ItemDisplayBinding="{Binding nombre_libro}"  SelectedItem="{Binding seleccion_libro}" ></Picker>
+            </Frame>
+            <Frame Padding="0" Margin="15">
+                <Button Command="{Binding Registrar_Prestamo}" Text="Guardar" Background="red" TextColor="White"   Margin="5"/>
+            </Frame>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="ID Editorial" Grid.Row="0" Grid.Column="0" TextColor="white" />
+                <Label Text="Codigo" Grid.Row="0" Grid.Column="1" TextColor="white" />
+                <Label Text="Nombre" Grid.Row="0" Grid.Column="2" TextColor="white" />
+                <ListView ItemsSource="{Binding Pres_}" SelectedItem="" Grid.Row="1" Grid.ColumnSpan="3">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label HorizontalTextAlignment="center" TextColor="White" Text="{Binding id_cabecera}" Grid.Column="0" />
+                                    <Label HorizontalTextAlignment="center" TextColor="White" Text="{Binding fecha_prestamo}" Grid.Column="1" />
+                                    <Label HorizontalTextAlignment="center" TextColor="white" Text="{Binding fecha_devolucion}" Grid.Column="2" />
+                                    <Label HorizontalTextAlignment="center" TextColor="white" Text="{Binding id_usuario}" Grid.Column="2" />
+                                    <Label HorizontalTextAlignment="center" TextColor="white" Text="{Binding nombre_libro}" Grid.Column="2" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

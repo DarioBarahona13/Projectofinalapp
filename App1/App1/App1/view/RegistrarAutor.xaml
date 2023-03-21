@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.view.RegistrarAutor" BackgroundColor="black"
+             xmlns:local="clr-namespace:App1.viewmodel"
+             >
+    <ContentPage.BindingContext>
+        <local:ViewmodalrgBliblioteca></local:ViewmodalrgBliblioteca>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Registro Autor" TextColor="White" FontSize="30" HorizontalTextAlignment="center" Margin="25"/>
+
+            <Label Text="Nombre Autor" TextColor="white"></Label>
+            <Frame Padding="0" Margin="15">
+                <Entry Text="{Binding Nombre_Autor}" Keyboard="Text" TextColor="Black"  Margin="5" />
+
+            </Frame>
+            <Label Text="Fecha" TextColor="white"></Label>
+            <Frame Padding="0" Margin="15">
+                <DatePicker Date="{Binding seleccion_fecha}" ></DatePicker>
+            </Frame>
+            <Button Command="{Binding Registrar_Autor}" Text="Guardar" Background="Green" TextColor="White"   Margin="5"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="ID Autor" Grid.Row="0" Grid.Column="0" TextColor="white" />
+                <Label Text="Autor" Grid.Row="0" Grid.Column="1" TextColor="white" />
+                <Label Text="Fecha" Grid.Row="0" Grid.Column="2" TextColor="white" />
+                <ListView ItemsSource="{Binding Autor_}" SelectedItem="" Grid.Row="1" Grid.ColumnSpan="3">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label HorizontalTextAlignment="center" TextColor="White" Text="{Binding id_autor}" Grid.Column="0" />
+                                    <Label HorizontalTextAlignment="center" TextColor="White" Text="{Binding nombre_autor}" Grid.Column="1" />
+                                    <Label HorizontalTextAlignment="center" TextColor="white" Text="{Binding fecha}" Grid.Column="2" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

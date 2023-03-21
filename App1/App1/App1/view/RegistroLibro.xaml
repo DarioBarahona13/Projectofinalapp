@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App1.viewmodel"
+             x:Class="App1.view.RegistroLibro" BackgroundColor="black">
+    <ContentPage.BindingContext>
+        <local:ViewmodalrgBliblioteca></local:ViewmodalrgBliblioteca>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Registro Libro" TextColor="White" FontSize="30" HorizontalTextAlignment="center" Margin="25"/>
+                <Label Text="Nombre" TextColor="white"></Label>
+                <Frame Padding="0" Margin="15">
+                    <Entry Text="{Binding Nombre_Libro}" Keyboard="Text" TextColor="Black"  Margin="5" />
+                </Frame>
+                <Label Text="Autor" TextColor="white"></Label>
+                <Frame Padding="0" Margin="15">
+                    <Picker ItemsSource="{Binding Autor_}"  ItemDisplayBinding="{Binding nombre_autor}" SelectedItem="{Binding seleccion_autor}" ></Picker>
+                </Frame>
+                <Label Text="Editorial" TextColor="white"></Label>
+                <Frame Padding="0" Margin="15">
+                    <Picker ItemsSource="{Binding Editorial_}"  ItemDisplayBinding="{Binding nombre_editorial}" SelectedItem="{Binding seleccion_editorial}" ></Picker>
+                </Frame>
+                <Label Text="Tema Libro" TextColor="white"></Label>
+                <Frame Padding="0" Margin="15">
+                    <Entry Text="{Binding Tema_Libro}" Keyboard="Text" TextColor="Black"  Margin="5" />
+                </Frame>
+                <Label Text="Edicion" TextColor="white"></Label>
+                <Frame Padding="0" Margin="15">
+                    <Entry Text="{Binding Edicion_Libro}" Keyboard="Text" TextColor="Black"  Margin="5" />
+                </Frame>
+                <Label Text="Observacion" TextColor="white"></Label>
+                <Frame Padding="0" Margin="15">
+                    <Entry Text="{Binding Ob_Libro}" Keyboard="Text" TextColor="Black"  Margin="5" />
+                </Frame>
+                <Label Text="Stock" TextColor="white"></Label>
+                <Frame Padding="0" Margin="15">
+                    <Entry Text="{Binding Stock_Libro}" Keyboard="Text" TextColor="Black"  Margin="5" />
+                </Frame>
+                <Button Command="{Binding Registrar_Libro}" Text="Guardar" Background="Green" TextColor="White"   Margin="5"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                  
+                    </Grid.ColumnDefinitions>
+                    <Label Text="ID" Grid.Row="0" Grid.Column="0" TextColor="white" />
+                    <Label Text="Nombre" Grid.Row="0" Grid.Column="1" TextColor="white" />
+                    <Label Text="Autor" Grid.Row="0" Grid.Column="2" TextColor="white" />
+                    <Label Text="Editorial" Grid.Row="0" Grid.Column="3" TextColor="white" />
+                    <Label Text="Tema" Grid.Row="0" Grid.Column="4" TextColor="white" />
+                    <Label Text="Edicion" Grid.Row="0" Grid.Column="5" TextColor="white" />
+                    <Label Text="Obser" Grid.Row="0" Grid.Column="6" TextColor="white" />
+                    <Label Text="Stock" Grid.Row="0" Grid.Column="7" TextColor="white" />
+                    <ListView ItemsSource="{Binding Libr_}" SelectedItem="" Grid.Row="1" Grid.ColumnSpan="8">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto" />
+                                            <ColumnDefinition Width="auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label HorizontalTextAlignment="center" TextColor="White" Text="{Binding id_libro}" Grid.Column="0" />
+                                        <Label HorizontalTextAlignment="center" TextColor="White" Text="{Binding nombre_libro}" Grid.Column="1" />
+                                        <Label HorizontalTextAlignment="center" TextColor="white" Text="{Binding id_autor}" Grid.Column="2" />
+                                        <Label HorizontalTextAlignment="center" TextColor="white" Text="{Binding id_editorial}" Grid.Column="3" />
+                                        <Label HorizontalTextAlignment="center" TextColor="white" Text="{Binding tema}" Grid.Column="4" />
+                                        <Label HorizontalTextAlignment="center" TextColor="white" Text="{Binding numero_edicion}" Grid.Column="5" />
+                                        <Label HorizontalTextAlignment="center" TextColor="white" Text="{Binding observacion}" Grid.Column="6" />
+                                        <Label HorizontalTextAlignment="center" TextColor="white" Text="{Binding stock}" Grid.Column="7" />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
